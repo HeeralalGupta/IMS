@@ -1,14 +1,18 @@
 package com.ims.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ims.entity.Product;
@@ -65,4 +69,19 @@ public class ProductController {
             return "redirect:/add-products"; // It goes to request mapping where add-products has mapped
         
     }
+	
+	@PostMapping("/fetchRate")
+	public ResponseEntity<Map<String, Double>> getRateById(@RequestBody Map<String, Object> request) {
+	    Integer productId = Integer.parseInt(request.get("productId").toString());
+	    Double rate = productService.getRateById(productId);	
+	    
+	    Map<String, Double> response = new HashMap<>();
+	    response.put("rate", rate != null ? rate : 0.0);
+	    
+	    return ResponseEntity.ok(response);
+	    
+	}
+
+
+	
 }

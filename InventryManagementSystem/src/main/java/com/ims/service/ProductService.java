@@ -1,5 +1,6 @@
 package com.ims.service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -17,10 +18,15 @@ public class ProductService {
 	private ProductRepo productRepository;
 	
 	public Product createProduct(Product product) {
+		product.setDate(LocalDate.now());
+		product.setStatus("Active");
 		return productRepository.save(product);
 	}
 	public List<Product> getAllProducts(){
 		return productRepository.findAll();
+	}
+	public Double getRateById(Integer id) {
+		return productRepository.findRateById(id);
 	}
 
     public Product getProductById(Long id) {
@@ -34,6 +40,7 @@ public class ProductService {
     		getProductData.setName(product.getName());
     		getProductData.setPrice(product.getPrice());
     		getProductData.setQuantity(product.getQuantity());
+    		getProductData.setStatus(product.getStatus());
     		return productRepository.save(getProductData);
     	}else {    		
     		throw new NoSuchElementException("No value present");

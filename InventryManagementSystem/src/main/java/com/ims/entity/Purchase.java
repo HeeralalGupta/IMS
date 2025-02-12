@@ -6,101 +6,78 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "purchase_detials")
+@Table(name = "purchase")
 public class Purchase {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
+	private Long invoice;
+	private LocalDate date;
+	private Integer supplierId;
+	private String address;
 	
-	@ManyToOne
-	@JoinColumn(name = "product_id")
-	private Product product;
-	
-	@ManyToOne
-	@JoinColumn(name = "supplier_id")
-	private Supplier supplier;
-	
-	private int quantity;
-	
-	private double unitPrice;
-	
-	private LocalDate purchaseDate;
-
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public Product getProduct() {
-		return product;
+	public Long getInvoice() {
+		return invoice;
 	}
 
-	public void setProduct(Product product) {
-		this.product = product;
+	public void setInvoice(Long invoice) {
+		this.invoice = invoice;
 	}
 
-	public Supplier getSupplier() {
-		return supplier;
+	public LocalDate getDate() {
+		return date;
 	}
 
-	public void setSupplier(Supplier supplier) {
-		this.supplier = supplier;
+	public void setDate(LocalDate date) {
+		this.date = date;
 	}
 
-	public int getQuantity() {
-		return quantity;
+	public Integer getSupplierId() {
+		return supplierId;
 	}
 
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
+	public void setSupplierId(Integer supplierId) {
+		this.supplierId = supplierId;
 	}
 
-	public double getUnitPrice() {
-		return unitPrice;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setUnitPrice(double unitPrice) {
-		this.unitPrice = unitPrice;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
-	public LocalDate getPurchaseDate() {
-		return purchaseDate;
+	public Purchase(Integer id, Long invoice, LocalDate date, Integer supplierId, String address) {
+		super();
+		this.id = id;
+		this.invoice = invoice;
+		this.date = date;
+		this.supplierId = supplierId;
+		this.address = address;
 	}
 
-	public void setPurchaseDate(LocalDate purchaseDate) {
-		this.purchaseDate = purchaseDate;
+	@Override
+	public String toString() {
+		return "Purchase [id=" + id + ", invoice=" + invoice + ", date=" + date + ", supplierId=" + supplierId
+				+ ", address=" + address + "]";
 	}
 
 	public Purchase() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
-
-	public Purchase(Long id, Product product, Supplier supplier, int quantity, double unitPrice,
-			LocalDate purchaseDate) {
-		super();
-		this.id = id;
-		this.product = product;
-		this.supplier = supplier;
-		this.quantity = quantity;
-		this.unitPrice = unitPrice;
-		this.purchaseDate = purchaseDate;
-	}
-
-	@Override
-	public String toString() {
-		return "Purchase [id=" + id + ", product=" + product + ", supplier=" + supplier + ", quantity=" + quantity
-				+ ", unitPrice=" + unitPrice + ", purchaseDate=" + purchaseDate + "]";
-	}
+	}	
 	
 	
 }

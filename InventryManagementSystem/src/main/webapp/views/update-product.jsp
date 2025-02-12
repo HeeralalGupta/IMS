@@ -44,6 +44,11 @@
 											type="number" name = "quantity" value="${product.quantity}" class="form-control input-square"
 											id="squareInput" placeholder="Quantity" required>
 									</div>
+									<div class="form-group">
+										<label for="squareInput">Status</label> <input
+											type="text" name = "status" value="${product.status}" class="form-control input-square"
+											id="squareInput" placeholder="Status" required>
+									</div>
 									<!-- <div class="form-group">
 										<label for="squareSelect">Square Select</label> <select
 											class="form-control input-square" id="squareSelect">

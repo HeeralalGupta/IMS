@@ -1,5 +1,7 @@
 package com.ims.entity;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,6 +18,9 @@ public class Supplier {
 	private String name;
 	private String contactPerson;
 	private String phoneNumber;
+	private String address;
+	private LocalDate date;
+	private String status;
 	
 	public Long getId() {
 		return id;
@@ -41,22 +46,45 @@ public class Supplier {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	public Supplier(Long id, String name, String contactPerson, String phoneNumber) {
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public LocalDate getDate() {
+		return date;
+	}
+	public void setDate(LocalDate date) {
+		this.date = date;
+	}
+	
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
+	public Supplier(Long id, String name, String contactPerson, String phoneNumber, String address, LocalDate date,
+			String status) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.contactPerson = contactPerson;
 		this.phoneNumber = phoneNumber;
+		this.address = address;
+		this.date = date;
+		this.status = status;
+	}
+	@Override
+	public String toString() {
+		return "Supplier [id=" + id + ", name=" + name + ", contactPerson=" + contactPerson + ", phoneNumber="
+				+ phoneNumber + ", address=" + address + ", date=" + date + ", status=" + status + "]";
 	}
 	public Supplier() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	@Override
-	public String toString() {
-		return "Supplier [id=" + id + ", name=" + name + ", contactPerson=" + contactPerson + ", phoneNumber="
-				+ phoneNumber + "]";
-	}
-	
 	
 }

@@ -41,6 +41,11 @@
 											type="tel" name = "phoneNumber" maxlength="10" class="form-control input-square"
 											id="squareInput" placeholder="Phone number" required>
 									</div>
+									<div class="form-group">
+										<label for="squareInput">Address</label> <input
+											type="text" name = "address" class="form-control input-square"
+											id="squareInput" placeholder="Address" required>
+									</div>
 									<!-- <div class="form-group">
 										<label for="squareSelect">Square Select</label> <select
 											class="form-control input-square" id="squareSelect">

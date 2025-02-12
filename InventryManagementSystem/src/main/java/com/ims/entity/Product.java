@@ -1,11 +1,11 @@
 package com.ims.entity;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -18,10 +18,8 @@ public class Product {
 	private String name;
 	private double price;
 	private Integer quantity;
-	
-	@ManyToOne
-	@JoinColumn(name = "supplier_id")
-	private Supplier supplier;
+	private String status;
+	private LocalDate date;
 	
 	public Long getId() {
 		return id;
@@ -41,38 +39,45 @@ public class Product {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	public Supplier getSupplier() {
-		return supplier;
-	}
-	public void setSupplier(Supplier supplier) {
-		this.supplier = supplier;
-	}
+	
 	public Integer getQuantity() {
 		return quantity;
 	}
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
-	@Override
-	public String toString() {
-		return "Product [id=" + id + ", name=" + name + ", price=" + price + ", quantity=" + quantity + ", supplier="
-				+ supplier + "]";
+	public String getStatus() {
+		return status;
 	}
-	public Product(Long id, String name, double price, Integer quantity, Supplier supplier) {
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
+	public LocalDate getDate() {
+		return date;
+	}
+	public void setDate(LocalDate date) {
+		this.date = date;
+	}
+	
+	public Product(Long id, String name, double price, Integer quantity, String status, LocalDate date) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.price = price;
 		this.quantity = quantity;
-		this.supplier = supplier;
+		this.status = status;
+		this.date = date;
+	}
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", price=" + price + ", quantity=" + quantity + ", status="
+				+ status + ", date=" + date + "]";
 	}
 	public Product() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	
-	
 	
 	
 }

@@ -41,16 +41,21 @@
 											type="tel" name = "phoneNumber" maxlength="10" value="${supplier.phoneNumber }" class="form-control input-square"
 											id="squareInput" placeholder="Phone number" required>
 									</div>
-									<!-- <div class="form-group">
+									<div class="form-group">
+										<label for="squareInput">Address</label> <input
+											type="text" name = "address" value="${supplier.address }" class="form-control input-square"
+											id="squareInput" placeholder="Address" required>
+									</div>
+									
+									<div class="form-group">
 										<label for="squareSelect">Square Select</label> <select
-											class="form-control input-square" id="squareSelect">
-											<option>1</option>
-											<option>2</option>
-											<option>3</option>
-											<option>4</option>
-											<option>5</option>
+											class="form-control input-square" name = "status" id="squareSelect">
+											<option>${supplier.status }</option>
+											<option value = "Active">Active</option>
+											<option value = "Inactive">Inactive</option>
+											
 										</select>
-									</div> -->
+									</div> 
 
 								</div>
 								<div class="card-action">

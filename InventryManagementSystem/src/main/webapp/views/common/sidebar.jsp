@@ -54,44 +54,40 @@
 						<li class='nav-item <c:if test="${active eq 'add-product' or active eq 'save-product'}">active</c:if>'>
 							<a href="add-products">
 								<i class="la la-plus-circle"></i>
-								<p>Add Products</p>
+								<p>Products</p>
 								<span class="badge badge-count">14</span>
 							</a>
 						</li>
 						<li class='nav-item <c:if test="${active eq 'add-supplier' or active eq 'save-supplier'}">active</c:if>'>
 							<a href="add-supplier">
-								<i class="la la-user-plus"></i>
-								<p>Add Supplier</p>
+								<i class="la la-users"></i>
+								<p>Supplier</p>
 								<span class="badge badge-count">50</span>
 							</a>
 						</li>
-						<li class="nav-item">
-							<a href="tables.html">
-								<i class="la la-th"></i>
-								<p>Tables</p>
-								<span class="badge badge-count">6</span>
+						<li class='nav-item <c:if test="${active eq 'purchase' or active eq ''}">active</c:if>'>
+							<a href="purchase">
+								<i class="la la-bar-chart"></i>
+								<p>Purchase</p>
+								<span class="badge badge-count">50</span>
 							</a>
 						</li>
-						<li class="nav-item">
-							<a href="notifications.html">
-								<i class="la la-bell"></i>
-								<p>Notifications</p>
-								<span class="badge badge-success">3</span>
+						<li class='nav-item <c:if test="${active eq 'sales' or active eq ''}">active</c:if>'>
+							<a href="sales">
+								<i class="la la-check-circle"></i>
+								<p>Sales</p>
+								<span class="badge badge-count">50</span>
 							</a>
 						</li>
-						<li class="nav-item">
-							<a href="typography.html">
-								<i class="la la-font"></i>
-								<p>Typography</p>
-								<span class="badge badge-danger">25</span>
+						<li class='nav-item <c:if test="${active eq 'stock' or active eq ''}">active</c:if>'>
+							<a href="stock">
+								<i class="la la-cart-arrow-down"></i>
+								<p>Stock</p>
+								<span class="badge badge-count">50</span>
 							</a>
 						</li>
-						<li class="nav-item">
-							<a href="icons.html">
-								<i class="la la-fonticons"></i>
-								<p>Icons</p>
-							</a>
-						</li>
+						
+					
 						<!-- <li class="nav-item update-pro">
 							<button  data-toggle="modal" data-target="#modalUpdate">
 								<i class="la la-hand-pointer-o"></i>
